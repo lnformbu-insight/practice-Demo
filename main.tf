@@ -6,7 +6,7 @@ resource "azurerm_resource_group" "GPS" {
 
 
 resource "azurerm_storage_account" "STAC" {
-  name                     = var.storage_account_name
+  name                     = "lenonstorage"
   resource_group_name      = azurerm_resource_group.GPS.name
   location                 = azurerm_resource_group.GPS.location
   account_tier             = "Standard"
