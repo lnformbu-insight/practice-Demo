@@ -5,9 +5,9 @@ resource "azurerm_resource_group" "ARG-GPS" {
 }
 
 resource "azurerm_storage_account" "main" {
-  name                     = var.storage_account_name
+  name                     = "test-stroage"
   resource_group_name      = azurerm_resource_group.main.name
-  location                 = azurerm_resource_group.example.location
+  location                 = azurerm_resource_group.main.location
   account_tier             = "Standard"
   account_replication_type = "GRS"
 
