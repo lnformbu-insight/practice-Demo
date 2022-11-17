@@ -4,6 +4,11 @@ resource "azurerm_resource_group" "ARG-GPS" {
   location = var.location
 }
 
+resource "azurerm_resource_group" "main" {
+  name     = "main-resources"
+  location = "eastus2"
+}
+
 resource "azurerm_storage_account" "main" {
   name                     = "test-stroage"
   resource_group_name      = azurerm_resource_group.main.name
