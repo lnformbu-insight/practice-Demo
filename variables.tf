@@ -7,3 +7,11 @@ variable "resource_group_name" {
 variable "location" {
   type = string
 }
+
+Varibale "account_tier" {
+  type = "string"
+}
+
+variable "account_replication_type" {
+  type  = "string"  
+}
