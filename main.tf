@@ -16,7 +16,6 @@ resource "azurerm_storage_account" "stgact" {
 
 
 
-
 /*
 resource "azurerm_mssql_server" "example" {
   name                         = "example-sqlserver"
