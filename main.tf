@@ -14,45 +14,27 @@ resource "azurerm_storage_account" "stgact" {
 }
 
 /*
-resource "azurerm_mssql_server" "msqlsrv" {
-  for_each = azurerm_resource_group.resgrp
-  name                         = var.mssql_server
-  resource_group_name      = each.value.name
-  location                 = var.location
+resource "azurerm_mssql_server" "example" {
+  name                         = "example-sqlserver"
+  resource_group_name          = azurerm_resource_group.example.name
+  location                     = azurerm_resource_group.example.location
   version                      = "12.0"
-  administrator_login          = var.msqlsrv_username
-  administrator_login_password = var.msqlsrv_password
+  administrator_login          = "4dm1n157r470r"
+  administrator_login_password = "4-v3ry-53cr37-p455w0rd"
 }
 
-<<<<<<< HEAD
-resource "azurerm_mssql_database" "msqldatabase" {
-  for_each = azurerm_resource_group.resgrp
-  name           = var.mssql_database
-  server_id      = azurerm_mssql_server.msqlsrv.id
-=======
-resource "azurerm_mssql_server" "msqlsrv" {
-  for_each = azurerm_resource_group.resgrp
-  name                         = var.mssql_server
-  resource_group_name      = each.value.name
-  location                 = var.location
-  version                      = "12.0"
-  administrator_login          = var.msqlsrv_username
-  administrator_login_password = var.msqlsrv_password
-}
-
-resource "azurerm_mssql_database" "msqldatabase" {
-  for_each = azurerm_resource_group.resgrp
-  name           = var.mssql_database
-  server_id      = each.value.id
->>>>>>> 36c302336cca2c972c177d51f434c4eff66dbe9d
+resource "azurerm_mssql_database" "test" {
+  name           = "acctest-db-d"
+  server_id      = azurerm_mssql_server.example.id
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"
   max_size_gb    = 4
   read_scale     = true
-  sku_name       = "BC_Gen5_2"
+  sku_name       = "S0"
   zone_redundant = true
-} 
-<<<<<<< HEAD
+
+  tags = {
+    foo = "bar"
+  }
+}
 */
-=======
->>>>>>> 36c302336cca2c972c177d51f434c4eff66dbe9d
