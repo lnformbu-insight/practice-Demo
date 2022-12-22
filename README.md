@@ -47,7 +47,7 @@ Fabrikam has decided to move forward with widescale deployment of their new clou
 #  start solution
 
 ## 1. Create 3 Resource groups   
-> | https://stackoverflow.com/questions/64668753/using-terraform-how-to-create-multiple-resources-of-same-type-with-unique-and-u |
+> | https://chat.openai.com/chat |
 
 
     a. NewCo-ETL-dev-rg

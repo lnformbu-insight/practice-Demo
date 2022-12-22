@@ -3,8 +3,8 @@ variable "resource_group" {
   description = "deafault resource group"
   type        = list(string)
   default     = ["dev", "uat", "prod"]
-  # default     = ["NewCO-ETL-dev-rg", "NewCO-ETL-uat-rg", "NewCO-ETL-prod-rg"]
-}
+ # default     = ["NewCO-ETL-dev-rg", "NewCO-ETL-uat-rg", "NewCO-ETL-prod-rg"]
+  }
 variable "location" {
   description = "location where rgs will be created"
   type        = string

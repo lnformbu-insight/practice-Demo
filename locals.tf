@@ -2,13 +2,14 @@ locals {
   naming_prefix = "NEWCO-ETL"
 
   environments = [
+
     {
-      env = "uat"
+      env = "dev"
 
     },
 
     {
-      env = "dev"
+      env = "uat"
 
     },
 
