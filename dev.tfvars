@@ -1,3 +1,2 @@
-resource_group_name = "test_resource_group"
-location = "eastus2"
-
+msqlsrv_username = "fabmedical"
+msqlsrv_password = "remote4AZURE"

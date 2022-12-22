@@ -1,7 +1,7 @@
 # Azure Provider source and version being used
 terraform {
   required_version = ">= 0.14.8"
-      cloud {
+  cloud {
     organization = "insight"
     workspaces {
       name = "Lenon-workspace-demo"
