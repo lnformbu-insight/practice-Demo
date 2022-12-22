@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "resgrp" {
 }
 # Deploy an SQL Database iin each resource created above (dev,uat,prod)
 resource "azurerm_storage_account" "stract" {
-  for_each                 = azurerm_resource_group.resgrp
+  for_each                 = toset(azurerm_resource_group.resgrp)
   name                     = "${each.key}${var.storage_account}"
   resource_group_name      = each.value.name
   location                 = var.location

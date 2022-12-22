@@ -18,7 +18,7 @@ variable "redundant_location" {
 variable "storage_account" {
   description = "storage account name"
   type        = string
-  default     = "storage"
+  default     = "storageac"
 }
 variable "msqlsrv_username" {
   description = "  administrator_login"
@@ -37,4 +37,13 @@ variable "mssql_database" {
   description = "mssql database name"
   type        = string
   default     = "msqldatabase"
+}
+variable "env" {
+  description = "environment name"
+  type        = map(string)
+  default = {
+    "dev"  = "dev"
+    "test" = "test"
+    "prod" = "prod"
+  }
 }
