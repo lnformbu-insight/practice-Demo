@@ -3,20 +3,38 @@ locals {
 
   environments = [
     {
+      env = "uat"
+
+    },
+
+    {
       env = "dev"
 
     },
 
     {
-      env = "uat"
-    },
-
-    {
       env = "prod"
+
     },
 
   ]
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 environment_map = {

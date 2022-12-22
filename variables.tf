@@ -1,8 +1,9 @@
 #specify the resource group
-variable "resource_group_name" {
+variable "resource_group" {
   description = "deafault resource group"
   type        = list(string)
-  default     = ["NewCO-ETL-dev-rg", "NewCO-ETL-uat-rg", "NewCO-ETL-prod-rg"]
+  default     = ["dev", "uat", "prod"]
+  # default     = ["NewCO-ETL-dev-rg", "NewCO-ETL-uat-rg", "NewCO-ETL-prod-rg"]
 }
 variable "location" {
   description = "location where rgs will be created"
@@ -36,4 +37,13 @@ variable "mssql_database" {
   description = "mssql database name"
   type        = string
   default     = "lntdatabase"
+}
+variable "env" {
+  description = "environment name"
+  type        = map(string)
+  default = {
+    "dev"  = "dev"
+    "test" = "test"
+    "prod" = "prod"
+  }
 }
