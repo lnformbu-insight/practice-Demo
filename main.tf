@@ -13,7 +13,7 @@ resource "azurerm_storage_account" "stgact" {
   account_replication_type = "LRS"
 }
 
-
+/*
 resource "azurerm_mssql_server" "msqlsrv" {
   for_each = azurerm_resource_group.resgrp
   name                         = var.mssql_server
@@ -27,7 +27,7 @@ resource "azurerm_mssql_server" "msqlsrv" {
 resource "azurerm_mssql_database" "msqldatabase" {
   for_each = azurerm_resource_group.resgrp
   name           = var.mssql_database
-  server_id      = each.value.id
+  server_id      = azurerm_mssql_server.msqlsrv.id
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"
   max_size_gb    = 4
@@ -35,3 +35,4 @@ resource "azurerm_mssql_database" "msqldatabase" {
   sku_name       = "BC_Gen5_2"
   zone_redundant = true
 } 
+*/
