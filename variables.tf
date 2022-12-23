@@ -52,7 +52,11 @@ variable "key_vault" {
   default     = "nockeyvault"
 }
 
-
+variable "data_factory" {
+  description = "storage account name"
+  type        = string
+  default     = "datafactory"
+}
 
 /*
 
