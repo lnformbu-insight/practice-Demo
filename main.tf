@@ -43,7 +43,8 @@ resource "azurerm_storage_account" "storact" {
   account_replication_type = "LRS"
 }
 
-#
+# deploys a storage datalake gen2 3R/RG CREATED
+
 resource "azurerm_storage_data_lake_gen2_filesystem" "dtlake" {
   for_each           = azurerm_resource_group.resgrp
   name               = "${each.key}-${var.data_lake}"
@@ -53,6 +54,8 @@ resource "azurerm_storage_data_lake_gen2_filesystem" "dtlake" {
     hello = "aGVsbG8=" 
   } */
 }
+
+# deploys a key_vault with permissions 3R/RG CREATED
 
 data "azurerm_client_config" "current" {}
 
@@ -94,6 +97,16 @@ resource "azurerm_key_vault" "keyvault" {
       "List",
     ]
   }
+}
+
+
+# deploys a Azure Data Factory (Version 2). 3R/RG CREATED
+
+resource "azurerm_data_factory" "dfactory" {
+  for_each            = azurerm_resource_group.resgrp
+  name                = "${each.key}-${var.data_factory}"
+  location            = var.location
+  resource_group_name = each.value.name
 }
 
 
