@@ -1,6 +1,6 @@
 # Azure Provider source and version being used
 terraform {
-  required_version = ">= 0.14.8"
+  required_version = ">= 0.15.0"
   cloud {
     organization = "insight"
     workspaces {
@@ -11,6 +11,11 @@ terraform {
     azurerm = {
       source  = "registry.terraform.io/hashicorp/azurerm"
       version = "~> 3.0"
+    }
+
+    azurerad = {
+      source  = "hashicorp/azuread"
+      version = "~> 2.31.0"
     }
   }
 }
