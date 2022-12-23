@@ -8,7 +8,7 @@ variable "resource_group" {
 variable "location" {
   description = "location where rgs will be created"
   type        = string
-  default     = "eatus"
+  default     = "eastus"
 }
 variable "redundant_location" {
   description = "Redundant location"
