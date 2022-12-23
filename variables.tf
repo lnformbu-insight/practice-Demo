@@ -58,6 +58,19 @@ variable "data_factory" {
   default     = "noc-datafactory"
 }
 
+variable "data_brick" {
+  description = "storage account name"
+  type        = string
+  default     = "noc-databrikcs"
+}
+
+
+
+
+
+
+
+
 /*
 
 variable "env" {
