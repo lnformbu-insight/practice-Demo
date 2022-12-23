@@ -19,6 +19,9 @@ terraform {
     }
 
   }
+      databricks = {
+      source = "databricks/databricks"
+    }
 }
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
