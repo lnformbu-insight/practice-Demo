@@ -18,18 +18,18 @@ Fabrikam has decided to move forward with widescale deployment of their new clou
 - Walkthrough of terraform code repositories
 - Walkthrough of platform deployment process
 `
-
 # SOLUTION
 
 
-## Deplyoing infra with Terraform.
+### Deplyoing infra with Terraform.
 `
-## Adding passwords securely.
+### Adding passwords securely.
 > | https://developer.hashicorp.com/terraform/tutorials/configuration-language/sensitive-variables
 |
-#
 
-#  start solution
+`
+
+# STEPS
 
 ## 1. Create 3 Resource groups   
 > | https://chat.openai.com/chat |

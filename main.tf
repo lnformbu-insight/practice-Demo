@@ -112,20 +112,18 @@ resource "azurerm_data_factory" "dfactory" {
 
 # deploys a Azure Data Factory (Version 2). 3R/RG CREATED
 
-resource "azurerm_databricks_access_connector" "databrick" {
+resource "azurerm_databricks_workspace" "databrick" {
   for_each            = azurerm_resource_group.resgrp
   name                = "${each.key}-${var.data_brick}"
   resource_group_name = each.value.name
   location            = var.location
-
-  identity {
-    type = "SystemAssigned"
-  }
-
-  tags = {
-    Environment = "Production"
-  }
+  sku                 = "standard"
 }
+
+
+
+
+
 
 
 

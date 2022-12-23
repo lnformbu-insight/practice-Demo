@@ -61,8 +61,11 @@ variable "data_factory" {
 variable "data_brick" {
   description = "storage account name"
   type        = string
-  default     = "noc-databrikcs"
+  default     = "databricks"
 }
+
+
+
 
 
 
