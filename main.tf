@@ -110,7 +110,7 @@ resource "azurerm_data_factory" "dfactory" {
 }
 
 
-# deploys a Azure Data Factory (Version 2). 3R/RG CREATED
+# deploys a Azure Data bricks  3R/RG CREATED
 
 resource "azurerm_databricks_workspace" "databrick" {
   for_each            = azurerm_resource_group.resgrp
