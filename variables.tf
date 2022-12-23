@@ -55,7 +55,7 @@ variable "key_vault" {
 variable "data_factory" {
   description = "storage account name"
   type        = string
-  default     = "noc-datafactory"
+  default     = "datafactory"
 }
 
 variable "data_brick" {
