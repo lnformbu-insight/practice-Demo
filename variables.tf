@@ -46,6 +46,12 @@ variable "data_lake" {
   default     = "datalakestorage"
 }
 
+variable "key_vault" {
+  description = "storage account name"
+  type        = string
+  default     = "nockeyvault"
+}
+
 
 
 /*

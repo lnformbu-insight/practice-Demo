@@ -79,8 +79,10 @@ Fabrikam has decided to move forward with widescale deployment of their new clou
 
 | Name | Resaource |
 |------|------|
+| [azurerm_resource_group.environment_rg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | 1 |
 | [azurerm_sql_database](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/sql_database) | a |
 | [azurerm_storage_data_lake_gen2_filesystem](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_data_lake_gen2_filesystem) | b |
 | [azurerm_key_vault.keyvault1](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault) | c |
-| [azurerm_resource_group.environment_rg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | d |
+
+
 
