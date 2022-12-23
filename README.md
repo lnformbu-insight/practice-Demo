@@ -71,5 +71,5 @@ Fabrikam has decided to move forward with widescale deployment of their new clou
 | [azurerm_key_vault.keyvault1](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault) | c |
 | [Data Factory](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_factory) | d |
 | [Azure  Databricks](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/databricks_workspace) | e |
-
+| [Service Analysis](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/analysis_services_server) | f |
 

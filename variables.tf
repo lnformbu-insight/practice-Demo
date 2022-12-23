@@ -64,6 +64,11 @@ variable "data_brick" {
   default     = "databricks"
 }
 
+variable "serveranalysis" {
+  description = "storage account name"
+  type        = string
+  default     = "srvanalysis23"
+}
 
 
 
