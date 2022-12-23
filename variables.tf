@@ -18,7 +18,7 @@ variable "redundant_location" {
 variable "storage_account" {
   description = "storage account name"
   type        = string
-  default     = "storageac"
+  default     = "nocstorageac"
 }
 variable "msqlsrv_username" {
   description = "  administrator_login"
