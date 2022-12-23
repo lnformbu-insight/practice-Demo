@@ -110,6 +110,48 @@ resource "azurerm_data_factory" "dfactory" {
 }
 
 
+# deploys a Azure Data bricks  3R/RG CREATED
+
+resource "azurerm_databricks_workspace" "databrick" {
+  for_each            = azurerm_resource_group.resgrp
+  name                = "${each.key}-${var.data_brick}"
+  resource_group_name = each.value.name
+  location            = var.location
+  sku                 = "standard"
+}
+
+
+# deploys a Azure Servive Anlysis  3R/RG CREATED
+
+
+resource "azurerm_analysis_services_server" "server" {
+  for_each            = azurerm_resource_group.resgrp
+  name                = "${each.key}${var.serveranalysis}"
+  location            = var.location
+  resource_group_name = each.value.name
+  sku                 = "S0"
+
+  # will update as per customers need. 
+  /*
+  admin_users             = ["myuser@domain.tld"]
+  enable_power_bi_service = true
+
+  ipv4_firewall_rule {
+    name        = "myRule1"
+    range_start = "210.117.252.0"
+    range_end   = "210.117.252.255"
+  }
+
+  tags = {
+    abc = 123
+  }
+  */
+}
+
+
+
+
+
 
 /*
 #codes for possible use

@@ -17,9 +17,22 @@ terraform {
       source  = "hashicorp/azuread"
       version = "~> 2.31.0"
     }
+
   }
 }
+
+
+/*
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
   features {}
 }
+
+# Use environment variables for authentication.
+provider "databricks" {}
+
+    databricks = {
+      source = "databricks/databricks"
+    }
+
+*/
