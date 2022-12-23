@@ -1,5 +1,4 @@
 #defines the resources and  passes the var.tf and calls the locals.tf 3RGs CREATED
-
 resource "azurerm_resource_group" "resgrp" {
   for_each = toset(var.resource_group)
   name     = "${local.naming_prefix}-${each.value}-rg"
@@ -7,7 +6,6 @@ resource "azurerm_resource_group" "resgrp" {
 }
 
 # deploys mssql server which is a dependency for running SQLDB  / 3R/RG CREATED
-
 resource "azurerm_mssql_server" "mslsvr" {
   for_each                     = azurerm_resource_group.resgrp
   name                         = "${each.key}-${var.mssql_server}"
@@ -19,7 +17,6 @@ resource "azurerm_mssql_server" "mslsvr" {
 }
 
 # Deploys an SQL Database in each resource created above (dev,uat,prod) / 3R/RG CREATED
-
 resource "azurerm_mssql_database" "msldb" {
   for_each     = azurerm_resource_group.resgrp
   name         = "${each.key}-${var.mssql_database}"
@@ -33,7 +30,6 @@ resource "azurerm_mssql_database" "msldb" {
 }
 
 # deploys a storage account which is a dependency for running and storage data late / 3R/RG CREATED
-
 resource "azurerm_storage_account" "storact" {
   for_each                 = azurerm_resource_group.resgrp
   name                     = "${each.key}${var.storage_account}"
@@ -44,7 +40,6 @@ resource "azurerm_storage_account" "storact" {
 }
 
 # deploys a storage datalake gen2 3R/RG CREATED
-
 resource "azurerm_storage_data_lake_gen2_filesystem" "dtlake" {
   for_each           = azurerm_resource_group.resgrp
   name               = "${each.key}-${var.data_lake}"
@@ -56,9 +51,7 @@ resource "azurerm_storage_data_lake_gen2_filesystem" "dtlake" {
 }
 
 # deploys a key_vault with permissions 3R/RG CREATED
-
 data "azurerm_client_config" "current" {}
-
 resource "azurerm_key_vault" "keyvault" {
   for_each                    = azurerm_resource_group.resgrp
   name                        = "${each.key}-${var.key_vault}"
@@ -101,7 +94,6 @@ resource "azurerm_key_vault" "keyvault" {
 
 
 # deploys a Azure Data Factory (Version 2). 3R/RG CREATED
-
 resource "azurerm_data_factory" "dfactory" {
   for_each            = azurerm_resource_group.resgrp
   name                = "${each.key}-${var.data_factory}"
@@ -111,7 +103,6 @@ resource "azurerm_data_factory" "dfactory" {
 
 
 # deploys a Azure Data bricks  3R/RG CREATED
-
 resource "azurerm_databricks_workspace" "databrick" {
   for_each            = azurerm_resource_group.resgrp
   name                = "${each.key}-${var.data_brick}"
@@ -122,8 +113,6 @@ resource "azurerm_databricks_workspace" "databrick" {
 
 
 # deploys a Azure Servive Anlysis  3R/RG CREATED
-
-
 resource "azurerm_analysis_services_server" "server" {
   for_each            = azurerm_resource_group.resgrp
   name                = "${each.key}${var.serveranalysis}"
