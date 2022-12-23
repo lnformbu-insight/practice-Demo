@@ -18,18 +18,18 @@ Fabrikam has decided to move forward with widescale deployment of their new clou
 - Walkthrough of terraform code repositories
 - Walkthrough of platform deployment process
 `
-
 # SOLUTION
 
 
-## Deplyoing infra with Terraform.
+### Deplyoing infra with Terraform.
 `
-## Adding passwords securely.
+### Adding passwords securely.
 > | https://developer.hashicorp.com/terraform/tutorials/configuration-language/sensitive-variables
 |
-#
 
-#  start solution
+`
+
+# STEPS
 
 ## 1. Create 3 Resource groups   
 > | https://chat.openai.com/chat |
@@ -70,6 +70,6 @@ Fabrikam has decided to move forward with widescale deployment of their new clou
 | [azurerm_storage_data_lake_gen2_filesystem](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_data_lake_gen2_filesystem) | b |
 | [azurerm_key_vault.keyvault1](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault) | c |
 | [Data Factory](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_factory) | d |
-| [Azure  Databricks](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_factory) | e |
+| [Azure  Databricks](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/databricks_workspace) | e |
 
 
