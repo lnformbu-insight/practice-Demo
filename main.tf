@@ -23,7 +23,7 @@ resource "azurerm_mssql_server" "mslsvr" {
   administrator_login_password = var.msqlsrv_password
 }
 
-resource "azurerm_mssql_database" "test" {
+resource "azurerm_mssql_database" "msldb" {
   for_each     = azurerm_resource_group.resgrp
   name         = "${each.key}${var.mssql_database}"
   server_id    = azurerm_mssql_server.mslsvr[each.key].id

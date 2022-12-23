@@ -8,12 +8,12 @@ variable "resource_group" {
 variable "location" {
   description = "location where rgs will be created"
   type        = string
-  default     = "westus3"
+  default     = "eatus"
 }
 variable "redundant_location" {
   description = "Redundant location"
   type        = string
-  default     = "eastus"
+  default     = "westus"
 }
 variable "storage_account" {
   description = "storage account name"
