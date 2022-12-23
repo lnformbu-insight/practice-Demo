@@ -10,7 +10,7 @@ resource "azurerm_resource_group" "resgrp" {
 
 resource "azurerm_mssql_server" "mslsvr" {
   for_each                     = azurerm_resource_group.resgrp
-  name                         = "${each.key}${var.mssql_server}"
+  name                         = "${each.key}-${var.mssql_server}"
   resource_group_name          = each.value.name
   location                     = var.location
   version                      = "12.0"
@@ -22,12 +22,12 @@ resource "azurerm_mssql_server" "mslsvr" {
 
 resource "azurerm_mssql_database" "msldb" {
   for_each     = azurerm_resource_group.resgrp
-  name         = "${each.key}${var.mssql_database}"
+  name         = "${each.key}-${var.mssql_database}"
   server_id    = azurerm_mssql_server.mslsvr[each.key].id
   collation    = "SQL_Latin1_General_CP1_CI_AS"
   license_type = "LicenseIncluded"
   sku_name     = "S0"
-  max_size_gb = 2
+  max_size_gb  = 2
   #zone_redundant = true
   #read_scale     = true
 }
@@ -45,16 +45,56 @@ resource "azurerm_storage_account" "storact" {
 
 #
 resource "azurerm_storage_data_lake_gen2_filesystem" "dtlake" {
-  for_each = azurerm_resource_group.resgrp
-  name               = "${each.key}${var.data_lake}"
+  for_each           = azurerm_resource_group.resgrp
+  name               = "${each.key}-${var.data_lake}"
   storage_account_id = azurerm_storage_account.storact[each.key].id
   # A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
   /*properties = {
     hello = "aGVsbG8=" 
-  } */ 
+  } */
 }
 
+data "azurerm_client_config" "current" {}
 
+resource "azurerm_key_vault" "keyvault" {
+  for_each                    = azurerm_resource_group.resgrp
+  name                        = "${each.key}-${var.key_vault}"
+  location                    = var.location
+  resource_group_name         = each.value.name
+  enabled_for_disk_encryption = true
+  tenant_id                   = data.azurerm_client_config.current.tenant_id
+  soft_delete_retention_days  = 7
+  purge_protection_enabled    = false
+
+  sku_name = "standard"
+
+  access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = data.azurerm_client_config.current.object_id
+
+    # more permissions can be define within blocks. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault
+    key_permissions = [
+      "Get",
+      "Create",
+      "List",
+
+    ]
+
+    secret_permissions = [
+      "Get",
+      "Set",
+      "List",
+      "Delete",
+      "Purge",
+      "Recover"
+    ]
+
+    storage_permissions = [
+      "Get",
+      "List",
+    ]
+  }
+}
 
 
 
