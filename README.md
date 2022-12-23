@@ -1,5 +1,4 @@
 # Module 4 step by step solution
-lookup more information Here https://github.com/grhoads-Insight
 
 https://github.com/lnformbu-insight/CodeToCloud-Student/blob/main/Challenges/Module4-Develop-IaC/Module4-LENS.md
 
