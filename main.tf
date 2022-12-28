@@ -32,7 +32,6 @@ resource "azurerm_mssql_database" "mssqldb" {
   license_type   = "LicenseIncluded"
   read_scale     = true
   sku_name       = "S0"
-  zone_redundant = true
 
   tags = {
     environment = "uat"
