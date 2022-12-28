@@ -1,7 +1,7 @@
 #defines the resources and  passes the var.tf and calls the locals.tf 3RGs CREATED
 
 resource "azurerm_resource_group" "resgrp" {
-  name     = "${local.naming_prefix}-${each.value}-rg"
+  name     = var.resource_group
   location = var.location
     tags = {
     "Environment"   = "uat"
