@@ -8,36 +8,42 @@ resource "azurerm_resource_group" "resgrp" {
   }
 }
 
-resource "azurerm_mysql_server" "msqlsvr" {
-  name                = var.mssql_server
-  location            = azurerm_resource_group.resgrp.location
-  resource_group_name = azurerm_resource_group.resgrp.name
+resource "azurerm_storage_account" "stract" {
+  name                     = var.storage_account
+  resource_group_name      = azurerm_resource_group.resgrp.name
+  location                 = azurerm_resource_group.resgrp.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
 
-  administrator_login          = var.msqlsrv_username
-  administrator_login_password = var.msqlsrv_password
-
-  sku_name   = "GP_Gen5_2"
-  storage_mb = 5120
-  version    = "5.7"
-
-  auto_grow_enabled                 = true
-  backup_retention_days             = 7
-  geo_redundant_backup_enabled      = true
-  infrastructure_encryption_enabled = true
-  public_network_access_enabled     = false
-  ssl_enforcement_enabled           = true
-  ssl_minimal_tls_version_enforced  = "TLS1_2"
   tags = {
     environment = "uat"
   }
 }
 
-resource "azurerm_mysql_database" "msqldb" {
-  name                = "exampledb"
-  resource_group_name = azurerm_resource_group.resgrp.name
-  server_name         = azurerm_mysql_server.msqlsvr.name
-  charset             = "utf8"
-  collation           = "utf8_unicode_ci"
+resource "azurerm_mssql_server" "msqlsrv" {
+  name                         = var.mssql_server
+  resource_group_name          = azurerm_resource_group.resgrp.name
+  location                     = azurerm_resource_group.resgrp.location
+  version                      = "12.0"
+  administrator_login          = var.msqlsrv_username
+  administrator_login_password = var.msqlsrv_password
 
+  tags = {
+    environment = "uat"
+  }
 }
 
+resource "azurerm_mssql_database" "msqldb" {
+  name           = var.mssql_database
+  server_id      = azurerm_mssql_server.msqlsrv.id
+  collation      = "SQL_Latin1_General_CP1_CI_AS"
+  license_type   = "LicenseIncluded"
+  max_size_gb    = 4
+  read_scale     = true
+  sku_name       = "S0"
+  zone_redundant = true
+
+  tags = {
+    environment = "uat"
+  }
+}
