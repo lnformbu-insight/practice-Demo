@@ -21,3 +21,8 @@ variable "msqlsrv_username" {
   description = "  administrator_login"
   type        = string
 }
+
+variable "msqlsrv_password" {
+  description = "  administrator_login"
+  type        = string
+}
