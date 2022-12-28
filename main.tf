@@ -138,7 +138,7 @@ resource "azurerm_analysis_services_server" "server" {
   tags = {
     abc = 123
   }
-  */
+
 }
 
 
