@@ -11,7 +11,7 @@ resource "azurerm_resource_group" "resgrp" {
 # deploys mssql server which is a dependency for running SQLDB  / 3R/RG CREATED
 
 resource "azurerm_mssql_server" "mslsvr" {
-  name                         = "${each.key}-${var.mssql_server}"
+  name                         = var.mssql_server
   resource_group_name          = azurerm_resource_group.resgrp
   location                     = azurerm_resource_group.location
   version                      = "12.0"
