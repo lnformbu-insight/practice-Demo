@@ -1,8 +1,7 @@
-
 variable "resource_group" {
   description = "deafault resource group"
-  type        = list(string)
-  default     = ["dev", "uat", "prod"]
+  type        = string
+  default     = "NewCO-ETL-uat-rg"
   # default     = ["NewCO-ETL-dev-rg", "NewCO-ETL-uat-rg", "NewCO-ETL-prod-rg"]
 }
 
@@ -22,80 +21,3 @@ variable "msqlsrv_username" {
   description = "  administrator_login"
   type        = string
 }
-
-variable "msqlsrv_password" {
-  description = "  administrator_login"
-  type        = string
-}
-
-variable "mssql_database" {
-  description = "mssql database name"
-  type        = string
-  default     = "msqldatabase"
-}
-
-variable "storage_account" {
-  description = "storage account name"
-  type        = string
-  default     = "nocstorageac"
-}
-
-variable "data_lake" {
-  description = "storage account name"
-  type        = string
-  default     = "datalakestorage"
-}
-
-variable "key_vault" {
-  description = "storage account name"
-  type        = string
-  default     = "nockeyvault"
-}
-
-variable "data_factory" {
-  description = "storage account name"
-  type        = string
-  default     = "datafactory"
-}
-
-variable "data_brick" {
-  description = "storage account name"
-  type        = string
-  default     = "databricks"
-}
-
-variable "serveranalysis" {
-  description = "storage account name"
-  type        = string
-  default     = "srvanalysis23"
-}
-
-
-
-
-
-
-
-
-
-
-/*
-
-variable "env" {
-  description = "environment name"
-  type        = map(string)
-  default = {
-    "dev"  = "dev"
-    "test" = "test"
-    "prod" = "prod"
-  }
-}
-
-#use when need for a redundant location
-variable "redundant_location" {
-  description = "Redundant location"
-  type        = string
-  default     = "westus"
-}
-
-*/
