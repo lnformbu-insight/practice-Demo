@@ -26,3 +26,15 @@ variable "msqlsrv_password" {
   description = "  administrator_login"
   type        = string
 }
+
+variable "mssql_database" {
+  description = "mssql database name"
+  type        = string
+  default     = "msqldatabase"
+}
+
+variable "storage_account" {
+  description = "storage account name"
+  type        = string
+  default     = "nocstorageac"
+}
