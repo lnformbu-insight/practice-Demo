@@ -12,7 +12,7 @@ resource "azurerm_resource_group" "resgrp" {
 
 resource "azurerm_mssql_server" "mslsvr" {
   name                         = var.mssql_server
-  resource_group_name          = azurerm_resource_group.resgrp
+  resource_group_name          = var.resource_group
   location                     = var.location
   version                      = "12.0"
   administrator_login          = var.msqlsrv_username
