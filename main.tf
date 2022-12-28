@@ -14,6 +14,9 @@ resource "azurerm_storage_account" "stract" {
   location                 = azurerm_resource_group.resgrp.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  tags = {
+    environment = "uat"
+  }
 }
 
 resource "azurerm_mssql_server" "mssqlsrv" {
@@ -23,11 +26,14 @@ resource "azurerm_mssql_server" "mssqlsrv" {
   version                      = "12.0"
   administrator_login          = var.msqlsrv_username
   administrator_login_password = var.msqlsrv_password
+  tags = {
+    environment = "uat"
+  }
 }
 
 resource "azurerm_mssql_database" "mssqldb" {
-  name           = var.mssql_database
-  server_id      = azurerm_mssql_server.mssqlsrv.id
+  name         = var.mssql_database
+  server_id    = azurerm_mssql_server.mssqlsrv.id
   collation    = "SQL_Latin1_General_CP1_CI_AS"
   license_type = "LicenseIncluded"
   sku_name     = "S0"
@@ -35,5 +41,5 @@ resource "azurerm_mssql_database" "mssqldb" {
 
   tags = {
     environment = "uat"
-}
+  }
 }
