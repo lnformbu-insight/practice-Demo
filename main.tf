@@ -115,6 +115,7 @@ resource "azurerm_databricks_workspace" "databrick" {
 
 
 
+
 # deploys a Azure Servive Anlysis  3R/RG CREATED
 resource "azurerm_analysis_services_server" "server" {
   for_each            = azurerm_resource_group.resgrp
