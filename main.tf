@@ -20,3 +20,4 @@ resource "azurerm_mssql_server" "mslsvr" {
   tags = {
     "Environment"   = "uat"
 }
+}
