@@ -24,18 +24,3 @@ terraform {
 provider "azurerm" {
   features {}
 }
-
-/*
-# Configure the Microsoft Azure Provider
-provider "azurerm" {
-  features {}
-}
-
-# Use environment variables for authentication.
-provider "databricks" {}
-
-    databricks = {
-      source = "databricks/databricks"
-    }
-
-*/
