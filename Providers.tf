@@ -4,7 +4,7 @@ terraform {
   cloud {
     organization = "insight"
     workspaces {
-      name = "Lenon-workspace-demo"
+      name = "ACE-workspace-Lenon"
     }
   }
   required_providers {
